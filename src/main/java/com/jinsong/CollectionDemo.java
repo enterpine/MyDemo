@@ -98,7 +98,7 @@ public class CollectionDemo {
         //queue
         PriorityQueue<String> pq = new PriorityQueue<>();
 
-        //Map
+        //Map: put()、get()、entrySet()、containsKey()、keySet()、remove()、clear()
         Hashtable<String, Int> ht = new Hashtable<>();
         LinkedHashMap<String, Int> lhm = new LinkedHashMap<>();
         HashMap<String, Int> hm = new HashMap<>();

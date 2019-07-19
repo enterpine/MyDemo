@@ -24,7 +24,7 @@ public class MaxTempDriver extends Configured implements Tool {
 
         job.setMapperClass(MaxTempMapper.class);
         //job.setCombinerClass(MaxTempReducer.class);
-        //job.setReducerClass(MaxTempReducer.class);
+        job.setReducerClass(MaxTempReducer.class);
 
 
 
