@@ -29,8 +29,12 @@ public class SortDemoDriver extends Configured implements Tool {
         Job job = new Job(getConf(),"MaxTemp");
         job.setJarByClass(getClass());
 
-        FileInputFormat.addInputPath(job,new Path(args[0]));
-        FileOutputFormat.setOutputPath(job,new Path(args[1]));
+        //FileInputFormat.addInputPath(job,new Path(args[0]));
+        FileInputFormat.setInputPaths(job
+                ,new Path(args[0])
+                ,new Path(args[1])
+        );
+        FileOutputFormat.setOutputPath(job,new Path(args[2]));
 
 
         job.setMapperClass(SortDemoMapper.class);
@@ -38,23 +42,40 @@ public class SortDemoDriver extends Configured implements Tool {
         job.setOutputKeyClass(IntWritable.class);
         job.setOutputValueClass(Text.class);
 
-        job.setNumReduceTasks(0);
-
-        //job.setInputFormatClass(SequenceFileInputFormat.class);
+        job.setNumReduceTasks(15);
 
 
-        job.setOutputFormatClass(SequenceFileOutputFormat.class);
-
-        SequenceFileOutputFormat.setCompressOutput(job,true);
-        SequenceFileOutputFormat.setOutputCompressorClass(job, GzipCodec.class);
-        SequenceFileOutputFormat.setOutputCompressionType(job, SequenceFile.CompressionType.BLOCK);
 
         return job.waitForCompletion(true)?0:1;
     }
 
     public static void main(String[] args) throws Exception{
-        int exitCode = ToolRunner.run(new SortDemoDriver(),args);
+        Configuration conf = new Configuration();
+        conf.set("fs.defaultFS","file:///");
+        conf.set("mapreduce.framework,name","local");
+        conf.setInt("mapreduce.task.io.sort.mb",1);
+
+
+        Path input = new Path("/Users/jinsong/GitProject/MyDemo/data/input/Sample.txt");
+        Path input2 = new Path("/Users/jinsong/GitProject/MyDemo/data/input/Sample2.txt");
+        Path output = new Path("/Users/jinsong/GitProject/MyDemo/data/output/");
+
+        FileSystem fs = FileSystem.getLocal(conf);
+        fs.delete(output,true);
+
+
+
+        SortDemoDriver driver = new SortDemoDriver();
+        driver.setConf(conf);
+
+        int exitCode = driver.run(new String[]{
+                input.toString(),input2.toString(),output.toString()
+        });
+
+        //int exitCode = ToolRunner.run(new SortDemoDriver(),args);
         System.exit(exitCode);
+
+
     }
 
 }
