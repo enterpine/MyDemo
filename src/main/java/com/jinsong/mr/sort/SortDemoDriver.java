@@ -42,7 +42,7 @@ public class SortDemoDriver extends Configured implements Tool {
         job.setOutputKeyClass(IntWritable.class);
         job.setOutputValueClass(Text.class);
 
-        job.setNumReduceTasks(15);
+        job.setNumReduceTasks(5);
 
 
 
