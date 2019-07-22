@@ -86,7 +86,7 @@ public class SortByTempUsingTotalOrderPartition extends Configured implements To
         return job.waitForCompletion(true)?0:1;
     }
 
-    public static void main(String[] args) throws Exception{
+    public static void localtest(String[] args) throws Exception{
 
         Configuration conf = new Configuration();
         conf.set("fs.defaultFS","file:///");
@@ -115,6 +115,11 @@ public class SortByTempUsingTotalOrderPartition extends Configured implements To
         System.exit(exitCode);
 
 
+    }
+
+    public void main(String[] args) throws  Exception{
+        int exitcode = ToolRunner.run(new SortByTempUsingTotalOrderPartition(), args);
+        System.exit(exitcode);
     }
 
 
