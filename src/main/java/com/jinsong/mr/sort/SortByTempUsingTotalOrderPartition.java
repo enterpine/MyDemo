@@ -28,6 +28,8 @@ import java.io.IOException;
 
 public class SortByTempUsingTotalOrderPartition extends Configured implements Tool {
 
+    //TotalOrderPartitioner依赖于一个partition file来distribute keys
+
 
     public static class Mapper2 extends Mapper<LongWritable, Text, IntWritable,Text> {
 
@@ -53,14 +55,17 @@ public class SortByTempUsingTotalOrderPartition extends Configured implements To
     public int run(String[] args) throws Exception{
 
 
-        Job job = new Job(getConf(),"MaxTemp");
+        Job job = new Job(getConf(),"SortByTempUsingTotalOrderPartition");
         job.setJarByClass(getClass());
 
         //FileInputFormat.addInputPath(job,new Path(args[0]));
+
         FileInputFormat.setInputPaths(job
                 ,new Path(args[0])
                 ,new Path(args[1])
         );
+
+
         FileOutputFormat.setOutputPath(job,new Path(args[2]));
 
 
@@ -71,14 +76,14 @@ public class SortByTempUsingTotalOrderPartition extends Configured implements To
 
         job.setPartitionerClass(TotalOrderPartitioner.class);
 
-        InputSampler.Sampler<IntWritable,Text> sampler = new InputSampler.RandomSampler<IntWritable, Text>(0.1,1000,5);
+        //InputSampler.Sampler<LongWritable,Text> sampler = new InputSampler.RandomSampler<LongWritable, Text>(0.1,1000,5);
 
-        InputSampler.writePartitionFile(job,sampler);
+        //InputSampler.writePartitionFile(job,sampler);
 
-        Configuration conf = job.getConfiguration();
-        String partitionFile = TotalOrderPartitioner.getPartitionFile(conf);
-        URI partitionUri = new URI(partitionFile);
-        job.addCacheFile(partitionUri);
+//        Configuration conf = job.getConfiguration();
+//        String partitionFile = TotalOrderPartitioner.getPartitionFile(conf);
+//        URI partitionUri = new URI(partitionFile);
+//        job.addCacheFile(partitionUri);
 
         job.setNumReduceTasks(5);
 
@@ -117,7 +122,7 @@ public class SortByTempUsingTotalOrderPartition extends Configured implements To
 
     }
 
-    public void main(String[] args) throws  Exception{
+    public static void main(String[] args) throws  Exception{
         int exitcode = ToolRunner.run(new SortByTempUsingTotalOrderPartition(), args);
         System.exit(exitcode);
     }

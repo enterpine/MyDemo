@@ -6,3 +6,6 @@ hadoop jar /Users/jinsong/GitProject/MyDemo/target/MyDemo-1.0-SNAPSHOT.jar com.j
 
 hadoop jar /Users/jinsong/GitProject/MyDemo/target/MyDemo-1.0-SNAPSHOT.jar com.jinsong.mr.sort.SortDemoUsingHashPart \
 -D mapreduce.job.reduces=5  /output/part-m-00000  /output/part-m-00001 /outputHashPart
+
+hadoop jar /Users/jinsong/GitProject/MyDemo/target/MyDemo-1.0-SNAPSHOT.jar com.jinsong.mr.sort.SortByTempUsingTotalOrderPartition \
+-D mapreduce.job.reduces=5  /output/part-m-00000  /output/part-m-00001 /outputTotalOrder

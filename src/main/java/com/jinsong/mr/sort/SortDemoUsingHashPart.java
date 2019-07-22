@@ -45,7 +45,7 @@ public class SortDemoUsingHashPart extends Configured implements Tool {
     public int run(String[] args) throws Exception{
 
 
-        Job job = new Job(getConf(),"MaxTemp");
+        Job job = new Job(getConf(),"SortDemoUsingHashPart");
         job.setJarByClass(getClass());
 
         //FileInputFormat.addInputPath(job,new Path(args[0]));
