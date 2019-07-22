@@ -55,7 +55,7 @@ public class SortBaseDriver extends Configured implements Tool {
         return job.waitForCompletion(true)?0:1;
     }
 
-    public static void main(String[] args) throws Exception{
+    public static void runlocal(String[] args) throws Exception{
         Configuration conf = new Configuration();
         conf.set("fs.defaultFS","file:///");
         conf.set("mapreduce.framework,name","local");
@@ -82,6 +82,11 @@ public class SortBaseDriver extends Configured implements Tool {
         System.exit(exitCode);
 
 
+    }
+
+    public static void main(String[] args) throws Exception{
+        int exitCode = ToolRunner.run(new SortBaseDriver(), args);
+        System.exit(exitCode);
     }
 
 }

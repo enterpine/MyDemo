@@ -14,6 +14,7 @@ import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.Tool;
+import org.apache.hadoop.util.ToolRunner;
 
 import java.io.IOException;
 
@@ -66,7 +67,7 @@ public class SortDemoUsingHashPart extends Configured implements Tool {
         return job.waitForCompletion(true)?0:1;
     }
 
-    public static void main(String[] args) throws Exception{
+    public static void localtest(String[] args) throws Exception{
 
         Configuration conf = new Configuration();
         conf.set("fs.defaultFS","file:///");
@@ -96,5 +97,12 @@ public class SortDemoUsingHashPart extends Configured implements Tool {
 
 
     }
+    public static void main(String[] args) throws Exception{
+
+        int exitCode = ToolRunner.run(new SortDemoUsingHashPart(), args);
+        System.exit(exitCode);
+
+    }
+
 
 }
