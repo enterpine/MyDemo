@@ -1,3 +1,0 @@
-为什么 job.setNumReduceTasks(0); 生成为两个文件
-为什么没有reduce任务，生成为1个文件
-不是应该按照hashPartition()分区么

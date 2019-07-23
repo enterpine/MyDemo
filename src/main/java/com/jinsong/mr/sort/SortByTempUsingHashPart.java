@@ -13,13 +13,15 @@ import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+import org.apache.hadoop.mapreduce.lib.partition.HashPartitioner;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
 import java.io.IOException;
 
 
-public class SortDemoUsingHashPart extends Configured implements Tool {
+public class SortByTempUsingHashPart extends Configured implements Tool {
+    //部分排序，使用IntWritable排序，分区内是排序的 跨分区不排序
 
     public static class Mapper1 extends Mapper<LongWritable, Text, IntWritable,Text> {
 
@@ -45,7 +47,7 @@ public class SortDemoUsingHashPart extends Configured implements Tool {
     public int run(String[] args) throws Exception{
 
 
-        Job job = new Job(getConf(),"SortDemoUsingHashPart");
+        Job job = new Job(getConf(),"SortByTempUsingHashPart");
         job.setJarByClass(getClass());
 
         //FileInputFormat.addInputPath(job,new Path(args[0]));
@@ -57,6 +59,8 @@ public class SortDemoUsingHashPart extends Configured implements Tool {
 
 
         job.setMapperClass(Mapper1.class);
+
+        job.setPartitionerClass(HashPartitioner.class);//默尔使用HashPartitioner
 
         job.setOutputKeyClass(IntWritable.class);
         job.setOutputValueClass(Text.class);
@@ -85,21 +89,21 @@ public class SortDemoUsingHashPart extends Configured implements Tool {
 
 
 
-        SortDemoUsingHashPart driver = new SortDemoUsingHashPart();
+        SortByTempUsingHashPart driver = new SortByTempUsingHashPart();
         driver.setConf(conf);
 
         int exitCode = driver.run(new String[]{
                 input.toString(),input2.toString(),output.toString()
         });
 
-        //int exitCode = ToolRunner.run(new SortDemoUsingHashPart(),args);
+        //int exitCode = ToolRunner.run(new SortByTempUsingHashPart(),args);
         System.exit(exitCode);
 
 
     }
     public static void main(String[] args) throws Exception{
 
-        int exitCode = ToolRunner.run(new SortDemoUsingHashPart(), args);
+        int exitCode = ToolRunner.run(new SortByTempUsingHashPart(), args);
         System.exit(exitCode);
 
     }

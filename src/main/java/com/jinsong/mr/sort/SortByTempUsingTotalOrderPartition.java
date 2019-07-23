@@ -28,7 +28,7 @@ import java.io.IOException;
 
 public class SortByTempUsingTotalOrderPartition extends Configured implements Tool {
 
-    //TotalOrderPartitioner依赖于一个partition file来distribute keys
+    //TotalOrderPartitioner依赖于一个Sequence file来distribute keys
 
 
     public static class Mapper2 extends Mapper<LongWritable, Text, IntWritable,Text> {
@@ -116,7 +116,7 @@ public class SortByTempUsingTotalOrderPartition extends Configured implements To
                 input.toString(),input2.toString(),output.toString()
         });
 
-        //int exitCode = ToolRunner.run(new SortDemoUsingHashPart(),args);
+        //int exitCode = ToolRunner.run(new SortByTempUsingHashPart(),args);
         System.exit(exitCode);
 
 
