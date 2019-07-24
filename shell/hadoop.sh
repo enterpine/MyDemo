@@ -12,4 +12,4 @@ hadoop jar /Users/jinsong/GitProject/MyDemo/target/MyDemo-1.0-SNAPSHOT.jar com.j
 
 hdfs dfs -rm -r /outputTotalOrderOverPart
 hadoop jar /Users/jinsong/GitProject/MyDemo/target/MyDemo-1.0-SNAPSHOT.jar com.jinsong.mr.sort.SortByTempGlobleOverPart \
--D mapreduce.job.reduces=9 /output/part-m-00000  /output/part-m-00001 /outputTotalOrderOverPart
+-D mapreduce.job.reduces=8 /output/part-m-00000  /output/part-m-00001 /outputTotalOrderOverPart
