@@ -1,4 +1,4 @@
-package com.jinsong;
+package com.jinsong.javabase;
 
 
 import java.io.*;
