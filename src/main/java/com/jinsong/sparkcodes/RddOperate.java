@@ -22,8 +22,8 @@ public class RddOperate {
 
         JavaSparkContext jsc = new JavaSparkContext(conf);
 
-        //JavaRDD<String> lines = jsc.textFile("/input/Sample.txt",1);
-        JavaRDD<String> lines = jsc.textFile("/Users/jinsong/GitProject/MyDemo/data/input/Sample.txt",1);
+        JavaRDD<String> lines = jsc.textFile("/input/Sample.txt",1);
+        //JavaRDD<String> lines = jsc.textFile("/Users/jinsong/GitProject/MyDemo/data/input/Sample.txt",1);
 
         JavaRDD<String> rdd = lines.filter(new Function<String,Boolean>(){
             public Boolean call(String x){
