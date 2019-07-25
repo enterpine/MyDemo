@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 spark-submit --master yarn \
---name "demo" \
+--name "demoYarn" \
 --deploy-mode client \
 --class com.jinsong.sparkcodes.RddOperate \
 /Users/jinsong/GitProject/MyDemo/target/MyDemo-1.0-SNAPSHOT.jar
@@ -12,7 +12,7 @@ spark-submit --master local \
 /Users/jinsong/GitProject/MyDemo/target/MyDemo-1.0-SNAPSHOT.jar
 
 spark-submit --master spark://songdeMacBook-Pro.local:7077 \
---name "demo" \
---deploy-mode client \
+--name "demoStandalone" \
+--deploy-mode cluster \
 --class com.jinsong.sparkcodes.RddOperate \
 /Users/jinsong/GitProject/MyDemo/target/MyDemo-1.0-SNAPSHOT.jar
