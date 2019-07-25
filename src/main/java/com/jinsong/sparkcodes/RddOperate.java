@@ -18,6 +18,7 @@ public class RddOperate {
 
         SparkConf conf = new SparkConf();
         //conf.setMaster("local");
+        //conf.setMaster("spark://songdeMacBook-Pro.local:7077 ");
         //conf.setAppName("demo");
 
         JavaSparkContext jsc = new JavaSparkContext(conf);
