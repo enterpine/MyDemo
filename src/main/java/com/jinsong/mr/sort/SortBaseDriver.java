@@ -58,6 +58,8 @@ public class SortBaseDriver extends Configured implements Tool {
                 ,new Path(args[0])
                 ,new Path(args[1])
         );
+        FileInputFormat.setMaxInputSplitSize(job,512);
+//        FileInputFormat.setMinInputSplitSize();
         FileOutputFormat.setOutputPath(job,new Path(args[2]));
 
 

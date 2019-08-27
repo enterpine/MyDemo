@@ -48,12 +48,14 @@ public class CollectionDemo {
 
         hs.add("d");
         hs.add("a");
+        System.out.println("HashSet:");
         hs.forEach(System.out::println);
 
 
         TreeSet<String> ts = new TreeSet<>();//自动排序使用treeMap实现，使用Comparable排序
         ts.add("d");
         ts.add("a");
+        System.out.println("TreeSet:");
         ts.forEach(System.out::println);
 
         //集合有四种输出方法

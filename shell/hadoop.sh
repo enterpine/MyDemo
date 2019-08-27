@@ -2,6 +2,7 @@
 
 hdfs dfs -put -f /Users/jinsong/GitProject/MyDemo/data/input/GradeTable /input/
 
+hdfs dfs -rm -r /output
 hadoop jar /Users/jinsong/GitProject/MyDemo/target/MyDemo-1.0-SNAPSHOT.jar com.jinsong.mr.sort.SortBaseDriver \
 -D mapreduce.job.reduces=5 /input/Sample.txt /input/Sample2.txt /output
 

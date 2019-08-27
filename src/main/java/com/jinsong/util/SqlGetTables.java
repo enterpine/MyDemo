@@ -60,7 +60,7 @@ public class SqlGetTables {
     }
 
     public static void main(String args[])  throws IOException {
-        String text = SqlGetTables.readFile("/Users/jinsong/GitProject/MyDemo/src/main/java/com/jinsong/util/ods_mid_debt.sh");
+        String text = SqlGetTables.readFile("/Users/jinsong/GitProject/warehouse/etl/ploan/dw_ads/bin/ads_zhixin_day_report.sh");
         ArrayList<String> al = SqlGetTables.getTables(text);
 
         for(int i=0;i<al.size();i++){
