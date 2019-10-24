@@ -1,7 +1,8 @@
+package com.jinsong.chinamobile;
 
 import java.util.Scanner;
 
-public class test {
+public class Question1 {
     static int result=0;
     public static void main(String[] args){
         //BufferedReader br = new BufferedReader( new InputStreamReader(System.in));

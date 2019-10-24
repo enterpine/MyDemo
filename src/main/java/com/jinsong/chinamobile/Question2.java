@@ -1,9 +1,11 @@
+package com.jinsong.chinamobile;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
 
 
-public class test2 {
+public class Question2 {
 
      static ArrayList ar = new ArrayList<String>();
 
