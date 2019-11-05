@@ -8,7 +8,7 @@ import org.apache.hadoop.util.*;
 public class ConfigurationPrinter extends Configured implements Tool {
 
     static {
-        Configuration.addDefaultResource("hdfs-default.xml");
+        //Configuration.addDefaultResource("hdfs-default.xml");
        // Configuration.addDefaultResource("hdfs-site.xml");
        // Configuration.addDefaultResource("yarn-default.xml");
        // Configuration.addDefaultResource("yarn-site.xml");

@@ -2,7 +2,11 @@ package com.jinsong.mr;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
+import org.apache.hadoop.fs.LocalFileSystem;
 import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.fs.RawLocalFileSystem;
+
+import java.net.URI;
 
 
 public class MrLocalTest {
@@ -16,7 +20,15 @@ public class MrLocalTest {
         Path input = new Path("/Users/jinsong/GitProject/MyDemo/data/input/Sample.txt");
         Path output = new Path("/Users/jinsong/GitProject/MyDemo/data/output");
 
-        FileSystem fs = FileSystem.getLocal(conf);
+        //LocalFileSystem
+        //FileSystem fs = FileSystem.getLocal(conf);
+        //LocalFileSystem fs = FileSystem.getLocal(conf);
+
+        //RawLocalFileSystem
+        FileSystem fs = new RawLocalFileSystem();
+        fs.initialize(URI.create("file:////Users/jinsong/GitProject/MyDemo/shell"),conf);
+
+
         fs.delete(output,true);
 
         MaxTempDriver driver = new MaxTempDriver();
