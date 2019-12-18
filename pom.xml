@@ -9,7 +9,7 @@
     <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
     <!--<modules>-->
-        <!--<module>flinkdemo</module>-->
+        <!--<module>Flinkdemo</module>-->
     <!--</modules>-->
 
     <dependencies>
