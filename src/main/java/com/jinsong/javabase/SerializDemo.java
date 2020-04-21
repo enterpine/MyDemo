@@ -26,7 +26,7 @@ public class SerializDemo {
 }
 @SuppressWarnings("serial")
 class Person implements Serializable{
-    private transient String name;
+    private transient String name; //transient关键字不参与序列化
     private int age;
     Person(String a,int b){
         this.name = a;

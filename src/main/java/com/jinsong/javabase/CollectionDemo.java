@@ -75,7 +75,6 @@ public class CollectionDemo {
         }
 
     }
-
     private static void mapdemo(){
         Hashtable<String, Integer> ht = new Hashtable<>();//synchronized,  keys 无序
 
@@ -145,20 +144,20 @@ public class CollectionDemo {
         // add(),addAll(),clear()，contains(),remove(),equlas(),size(),isEmpty(),toArray(),iterator()
 
         //1.1List
-        //listdemo();
+        listdemo();
 
         //1.2Set  没有get()方法,没有重复元素
-        //setdemo();
+        setdemo();
 
         //1.3 queue
-//        PriorityQueue<String> pq = new PriorityQueue<>();
-//        pq.add("pq1");
-//        pq.add("pq2");
-//        pq.add("pq3");
-//        while(!pq.isEmpty()){
-//            System.out.println(pq.poll());
-//            pq.peek();
-//        }
+        PriorityQueue<String> pq = new PriorityQueue<>();
+        pq.add("pq1");
+        pq.add("pq2");
+        pq.add("pq3");
+        while(!pq.isEmpty()){
+            System.out.println(pq.poll());
+            pq.peek();
+        }
 
 
         //1.4 Map: put()、get()、entrySet()、containsKey()、keySet()、remove()、clear()
