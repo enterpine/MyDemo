@@ -1,6 +1,8 @@
 package com.jinsong.javabase;
 
 import java.util.*;
+import java.util.concurrent.BlockingDeque;
+import java.util.concurrent.BlockingQueue;
 
 public class CollectionDemo {
 
@@ -158,6 +160,10 @@ public class CollectionDemo {
             System.out.println(pq.poll());
             pq.peek();
         }
+
+
+        //BlockingQueue<String> bq = new BlockingQueue<>();
+
 
 
         //1.4 Map: put()、get()、entrySet()、containsKey()、keySet()、remove()、clear()
