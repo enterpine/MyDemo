@@ -59,7 +59,7 @@ public class SqlGetTables {
     }
 
     public static void main(String args[])  throws IOException {
-        String sqlPath = "D:\\ideaprojects\\data-warehouse\\ad\\adx\\dwd\\hql\\lm_dwd_adx_effect_detail.sql";
+        String sqlPath = "D:\\lm_dws_sem_in_station_day(1).sql";
         String text = SqlGetTables.readFile(sqlPath);
 
         ArrayList<String> al = SqlGetTables.getTables(text);
