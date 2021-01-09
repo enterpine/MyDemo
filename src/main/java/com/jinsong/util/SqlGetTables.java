@@ -1,3 +1,4 @@
+
 package com.jinsong.util;
 
 import java.io.BufferedReader;
@@ -41,13 +42,12 @@ public class SqlGetTables {
 
         for(int i=0;i<tmpwords.length;i++){
             if(tmpwords[i].trim().length()>0){
-                words.add(tmpwords[i]);
+                words.add(tmpwords[i].trim());
             }
         }
         for(int i=0;i<words.size();i++){
-            if(i-1>0 && (words.get(i-1).equals("join") || words.get(i-1).equals("from"))) {
+            if(i-1>=0 && (words.get(i-1).toLowerCase().equals("join") || words.get(i-1).toLowerCase().equals("from"))) {
                 if(!words.get(i).contains("(") && words.get(i).trim().length()>0&&words.get(i).contains(".")) {
-                    //System.out.println(words[i]);
                     st.add(words.get(i));
                 }
             }
@@ -55,12 +55,13 @@ public class SqlGetTables {
         for(String s:st){
             result.add(s);
         }
-
         return result;
     }
 
     public static void main(String args[])  throws IOException {
-        String text = SqlGetTables.readFile("/Users/jinsong/GitProject/warehouse/etl/ploan/dw_ads/bin/ads_shuxin_push_autorecall.sh");
+        String sqlPath = "D:\\ideaprojects\\data-warehouse\\ad\\adx\\dwd\\hql\\lm_dwd_adx_effect_detail.sql";
+        String text = SqlGetTables.readFile(sqlPath);
+
         ArrayList<String> al = SqlGetTables.getTables(text);
 
         for(int i=0;i<al.size();i++){
