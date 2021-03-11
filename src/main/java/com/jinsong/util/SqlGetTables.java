@@ -31,7 +31,6 @@ public class SqlGetTables {
         StringBuffer sb = new StringBuffer();
         SqlGetTables.readToBuffer(sb, filePath);
         return sb.toString();
-
     }
 
     public static ArrayList<String> getTables(String text)  throws IOException {

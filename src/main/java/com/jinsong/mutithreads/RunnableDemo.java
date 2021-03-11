@@ -3,12 +3,15 @@ import java.lang.Runnable;
 
 public class RunnableDemo implements Runnable{
 
-    public int a = 0;
+    public Integer a = 0;
 
-    public synchronized  void run(){
-        for(int i=0;i<100000000;i++) {
-            this.a = a + 1;
-            //System.out.println(a);
+    public void run() {
+        synchronized (this) {
+            for (int i = 0; i < 100000000; i++) {
+
+                this.a = a + 1;
+            }
+
         }
         System.out.println(a);
     }
@@ -22,15 +25,15 @@ public class RunnableDemo implements Runnable{
         Thread ta = new Thread(rd);
         Thread tb = new Thread(rd);
 
-        ta.setPriority(10);
+        //ta.setPriority(10);
+
         ta.start();
-        //ta.join();
-
-
         tb.start();
+
+        //ta.join();
         //tb.join();
 
-        System.out.println("wed"+rd.a);
+        System.out.println("result-> "+rd.a);
     }
 }
 

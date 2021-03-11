@@ -6,22 +6,33 @@ import java.util.concurrent.FutureTask;
 
 public class CallableDemo implements Callable<Integer> {
 
-    public Integer call() throws Exception{
-        int re=0;
-        for(int i=0;i<10;i++){
-            System.out.println(i);
+    public int re  = 0;
+
+    public synchronized Integer call() throws Exception{
+        for(int i=0;i<1000000;i++){
             re++;
         }
         return re;
     }
 
     public static void main(String[] args) throws Exception{
+
         CallableDemo cd = new CallableDemo();
+
         FutureTask<Integer> ft = new FutureTask(cd);
+
         Thread ta = new Thread(ft);
+        Thread tb = new Thread(ft);
+
         ta.start();
+        tb.start();
+
+        ta.join();
+        tb.join();
+
         int a = ft.get();
-        System.out.println(a);
+
+        System.out.println("result->"+a);
 
     }
 
