@@ -20,8 +20,8 @@ public class KafkaConsumerDemo {
 
         //订阅主题
         List<String> topics = new ArrayList<>();
-        topics.add("test");
-        //topics.add("__consumer_offsets");
+        //topics.add("test");
+        topics.add("__consumer_offsets");
         kc.subscribe(topics);
 
         //消费获取消息

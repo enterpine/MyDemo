@@ -15,8 +15,8 @@ public class ReplaceByLine {
 
     public static void main(String[] args) throws Exception {
 
-        String mapfile = "D:\\ideaprojects\\MyDemo\\src\\main\\java\\com\\jinsong\\util\\map.file";
-        String sqlfile = "D:\\ideaprojects\\MyDemo\\src\\main\\java\\com\\jinsong\\util\\sqltest.sql";
+        String mapfile = "/Users/jinsong/IdeaProjects/MyDemo/src/main/java/com/jinsong/util/map.file";
+        String sqlfile = "/Users/jinsong/IdeaProjects/MyDemo/src/main/java/com/jinsong/util/sqltest.sql";
         HashMap<String,String> map = readMap(mapfile);
         ArrayList<String> sqltext = readSqltext(sqlfile);
 //
