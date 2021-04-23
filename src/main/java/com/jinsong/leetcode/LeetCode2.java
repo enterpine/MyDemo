@@ -1,7 +1,6 @@
 package com.jinsong.leetcode;
 
 
-import java.util.List;
 
 public class LeetCode2 {
 
