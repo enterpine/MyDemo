@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class GuitarChordRandom{
+public class DominantSevenChordRandom {
     public static void main(String[] args) throws  Exception {
 
         List<String> chords = new ArrayList<>();
