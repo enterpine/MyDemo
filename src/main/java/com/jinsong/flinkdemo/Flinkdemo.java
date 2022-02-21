@@ -10,7 +10,7 @@ public class Flinkdemo {
 
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 
-        DataStreamSource<String> text = env.readTextFile("/Users/jinsong/GitProject/MyDemo/data/flinkdata/data.txt");
+        DataStreamSource<String> text = env.readTextFile("/Users/jinsong/testStream.txt");
 
 
         DataStream<String> result = text.map(a->a);

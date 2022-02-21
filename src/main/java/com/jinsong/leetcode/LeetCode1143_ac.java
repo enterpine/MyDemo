@@ -41,5 +41,6 @@ public class LeetCode1143_ac {
         String s2 = "hafcdqbgncrcbihkd";
         int a = longestCommonSubsequence(s1,s2);
         System.out.println(a);
+
     }
 }

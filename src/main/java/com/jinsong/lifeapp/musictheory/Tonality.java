@@ -36,9 +36,23 @@ public class Tonality {
 
         Tonality tonality = new Tonality();
 
-        tonality.getTonality(ModesCollect.BulesMinor,"C").forEach(x->System.out.print(x+"\t"));
+        tonality.getTonality(ModesCollect.NaturalMajor,"C").forEach(x->System.out.print(x+"\t"));
         System.out.println();
-        tonality.getTonality(ModesCollect.BulesMajor,"C").forEach(x->System.out.print(x+"\t"));
+        tonality.getTonality(ModesCollect.NaturalMajor,"D").forEach(x->System.out.print(x+"\t"));
+        System.out.println();
+        tonality.getTonality(ModesCollect.NaturalMajor,"E").forEach(x->System.out.print(x+"\t"));
+        System.out.println();
+        tonality.getTonality(ModesCollect.NaturalMajor,"F").forEach(x->System.out.print(x+"\t"));
+        System.out.println();
+        tonality.getTonality(ModesCollect.NaturalMajor,"F#").forEach(x->System.out.print(x+"\t"));
+        System.out.println();
+        tonality.getTonality(ModesCollect.NaturalMajor,"G").forEach(x->System.out.print(x+"\t"));
+        System.out.println();
+        tonality.getTonality(ModesCollect.NaturalMajor,"A").forEach(x->System.out.print(x+"\t"));
+        System.out.println();
+        tonality.getTonality(ModesCollect.NaturalMajor,"B").forEach(x->System.out.print(x+"\t"));
+        System.out.println();
+
 
     }
 
