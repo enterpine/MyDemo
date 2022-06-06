@@ -20,8 +20,6 @@ public class LeetCode11 {
                 leftIndex++;
             } else if (capcity_l < capcity_r) {
                 rightIndex--;
-            } else{
-
             }
         }
 

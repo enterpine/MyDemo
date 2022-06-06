@@ -8,13 +8,14 @@ public class CollectionDemo {
 
     private static void listdemo(){
         //get(index),set(index,value),listIterator()
-        List<String> al = new ArrayList<>();
+        ArrayList<String> al = new ArrayList<>();
         System.out.println(al.size());
         al.add("a");
         al.add("d");
         al.add("a");
         al.add("b");
         al.add("c");
+        al.get(2);
         al.remove("a");
         System.out.println(al);
         al.set(2,"e");
@@ -26,10 +27,11 @@ public class CollectionDemo {
         ListIterator<String> lit = al.listIterator();
         lit.hasPrevious();
 
-        List<String> ll = new LinkedList<>();
+        LinkedList<String> ll = new LinkedList<>();
         ll.add("ll1");
         ll.add("ll2");
         ll.add("ll3");
+        ll.get(2);
         Iterator<String> it2 = ll.listIterator();
         ((ListIterator<String>) it2).hasPrevious();
 
@@ -39,8 +41,8 @@ public class CollectionDemo {
         while(e.hasMoreElements()){
             e.nextElement();
         }
-        //ArrayList 和 LinkedList: 1、get方法效率不同 2、arraylist的add后长度为10。之后add方法需要增加长度时每次1.5倍增加长度，浪费空间 3、本质不同
-        //ArrayList 和 Vector ：1、Vector默认构造10长度,增长度翻倍或自定义，取较大值 2、Vector线程同步 ，是线程安全的
+        //ArrayList 和 LinkedList: 1、get方法效率不同 2、arraylist的add后长度为10。之后add方法需要增加长度时每次2倍增加长度l+0.5l，浪费空间 3、本质不同
+        //ArrayList 和 Vector ：1、Vector默认构造10长度,增长度翻倍或自定义l+m，取较大值 2、Vector线程同步 ，是线程安全的
         //对自定义对象使用remove方法，需要实现equals()方法来判断是否相同。
     }
     private static void setdemo(){
