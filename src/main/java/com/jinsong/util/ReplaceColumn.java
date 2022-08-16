@@ -1,7 +1,7 @@
 package com.jinsong.util;
 
 import org.apache.hadoop.util.hash.Hash;
-import org.json4s.scalap.InRule;
+
 import scala.Tuple2;
 
 import java.io.*;
