@@ -1,6 +1,5 @@
 package com.jinsong.leetcode;
 
-import org.apache.flink.streaming.api.functions.IngestionTimeExtractor;
 
 import java.util.Hashtable;
 import java.util.Map;
